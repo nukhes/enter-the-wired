@@ -444,37 +444,11 @@ export LD_AUDIT="'"$SLSSTEAM_INSTALL_DIR"'/SLSsteam.so"' "$STEAM_SH"
 }
 
 # ============================================================
-# SLSSTEAM PROMPT
+# INSTALL SLSSTEAM AUTOMATICALLY
 # ============================================================
 
-install_slssteam_ask() {
-    echo ""
-    echo -e "${GREEN}Would you like to install SLSsteam as well?${NC}"
-    echo "SLSsteam is a modification that allows playing games not owned in your library."
-    echo ""
-    echo "  [y] Yes, install"
-    echo "  [n] No, skip"
-    echo ""
-    read -p "Your choice: " choice
-
-    case "$choice" in
-        y|Y)
-            install_slssteam
-            ;;
-        n|N|"")
-            echo "SLSsteam skipped."
-            ;;
-        *)
-            echo "Invalid option. Skipping SLSsteam."
-            ;;
-    esac
-}
-
-# ============================================================
-# FINAL PROMPT
-# ============================================================
-
-install_slssteam_ask
+echo -e "${GREEN}Installing SLSsteam...${NC}"
+install_slssteam
 
 echo -e "${GREEN}Process completed!${NC}"
 echo "Protocol complete. Welcome to the Wired."
