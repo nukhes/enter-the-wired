@@ -131,6 +131,15 @@ else
     exit 1
 fi
 
+# Install .NET SDK 9.0
+echo -e "${GREEN}Installing .NET SDK 9.0...${NC}"
+if ! curl -sSL https://dot.net/v1/dotnet-install.sh | bash -s -- --channel 9.0 --runtime dotnet; then
+    echo -e "${YELLOW}Warning: .NET SDK installation failed. Continuing anyway...${NC}"
+fi
+
+# Add .NET to PATH for current session
+export PATH="$HOME/.dotnet:$PATH"
+
 echo -e "${GREEN}Installing ACCELA...${NC}"
 
 # Cleanup to avoid conflicts with previous installation attempts
