@@ -389,6 +389,9 @@ install_slssteam() {
 
     rm -rf /tmp/slssteam_extract "$TEMP_SLS"
 
+    # Create libcurl symlink (required for SLSsteam)
+    ln -sf /usr/lib32/libcurl.* "$STEAM_LIB_DIR/" 2>/dev/null
+
     echo "Just open Steam normally to play."
 }
 
